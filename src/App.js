@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Spinner from "./components/Spinner";
+import Login from "./screens/Login";
+import Splash from "./screens/Splash";
+import DialScreen from "./screens/DialScreen";
+import Calling from "./screens/Calling";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="h-screen w-screen">
+        <Routes>
+          <Route path="/" element={<Splash />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/spinner" element={<Spinner />} />
+          <Route path="/dialscreen" element={<DialScreen />} />
+          <Route path="/calling" element={<Calling />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
